@@ -10,7 +10,10 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
 	"time"
+
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	_ "github.com/tursodatabase/libsql-client-go/libsql"
@@ -34,6 +37,22 @@ func main() {
 	defer db.Close()
 	
 	r := gin.Default()
+
+	ao := os.Getenv("ALLOWED_ORIGINS")
+	var allowOrigins []string
+	aoTokens := strings.Split(ao, ",")
+	for _, token := range aoTokens {
+		allowOrigins = append(allowOrigins, strings.TrimSpace(token))
+	}
+	
+	r.Use(cors.New(cors.Config{
+		AllowOrigins:     allowOrigins,
+		AllowMethods:     []string{"GET", "POST"},
+		AllowHeaders:     []string{"Origin", "Content-Type"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+		MaxAge:           12 * time.Hour,
+	}))
 
 	r.Use(func(c *gin.Context) {
 		c.Set("db", db)
