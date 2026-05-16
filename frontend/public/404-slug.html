@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STNR - Not Found</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lacquer&family=Outfit:wght@100..900&display=swap');
+
+      :root {
+          --black: #071E22;
+          --white: #F4F3EE;
+          --primary: #F4442E;
+          --secondary: #1D7874;
+      }
+
+      body, html {
+          padding: 0;
+          margin: 0;
+          font-family: Outfit;
+          background-color: var(--white);
+          color: var(--black);
+      }
+
+      *, 
+      *::before,
+      *::after {
+          box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      h3, 
+      h4, 
+      h5, 
+      h6 {
+          font-family: Lacquer;
+      }
+
+      .cprimary {
+          color: var(--primary);
+      }
+
+      .csecondary {
+          color: var(--secondary);
+      }
+
+      .bcprimary {
+          background-color: var(--primary);
+      }
+
+      .bcsecondary {
+          background-color: var(--secondary);
+      }
+
+      a {
+          color: var(--black);
+          text-decoration-style: dotted;
+          transition: all ease-in-out .5s;
+      }
+
+      a:hover {
+          color: var(--secondary);
+      }
+
+      .not-found {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        text-align: center;
+        padding: .5em;
+      }
+
+      .not-found > h1 {
+        font-size: clamp(4vw + 1em, 6vw, 8vw);
+      }
+    </style>
+  </head>
+  <body>
+      <div class="not-found">
+        <h1 class="cprimary">Womp Womp</h1>
+        <p><b><small>Invalid slug!</small></b></p>
+        <p>It seems i can't tell where you are going. This may be due to the <b>slug</b> <i>(/_/some-random-letters-here)</i> <b>not being valid</b> or it has been <b>deleted</b>.</p>
+        <a href="/">Go Home</a>
+      </div>
+  </body>
+</html>
