@@ -174,6 +174,24 @@ func main() {
 			}
 			c.Data(http.StatusOK, "text/html; charset=utf-8", data)
 		})
+		
+		r.GET("/og-image.png", func(c *gin.Context) {
+			data, err := public.ReadFile("public/og-image.png")
+			if err != nil {
+				c.String(http.StatusNotFound, "Not found")
+				return
+			}
+			c.Data(http.StatusOK, "image/png", data)
+		})
+		
+		r.GET("/favicon.svg", func(c *gin.Context) {
+			data, err := public.ReadFile("public/favicon.svg")
+			if err != nil {
+				c.String(http.StatusNotFound, "Not found")
+				return
+			}
+			c.Data(http.StatusOK, "image/svg+xml", data)
+		})
 
 		assetsFs, _ := fs.Sub(public, "public/assets")
 		r.StaticFS("/assets", http.FS(assetsFs))

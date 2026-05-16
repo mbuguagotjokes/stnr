@@ -1,8 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { Spring } from 'svelte/motion';
-  import favicon from "./assets/favicon.svg"
-  import ogImage from "./assets/og-image.png"
   import { fade, slide } from "svelte/transition";
   
   let coords = new Spring({ x: 50, y: 50 }, {
@@ -27,25 +25,7 @@
 </script>
 
 <svelte:head>
-    <link rel="icon" type="image/svg+xml" href={favicon}>
-    <meta property="og:type"        content="website" />
-    <meta property="og:site_name"   content="STNR - Simple link shortener" />
-    <meta property="og:title"       content="STNR" />
-    <meta property="og:description" content="A very very simple link shortener." />
-    <meta property="og:url"         content="https://stnr.mbuguaaaaaa.xyz" />
-    <meta property="og:image"       content={ogImage} />
-    <meta property="og:image:width"  content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt"   content="STNR — A very very simple link shortener" />
-    <meta property="og:locale"      content="en_US" />
-    <meta name="twitter:card"        content="summary_large_image" />
-    <meta name="twitter:title"       content="STNR" />
-    <meta name="twitter:description" content="A very very simple link shortener." />
-    <meta name="twitter:image"       content={ogImage} />
-    <meta name="twitter:image:alt"   content="STNR — A very very simple link shortener" />
-    <meta name="theme-color" content="#F4442E" />
-    <link rel="canonical" href="https://stnr.mbuguaaaaaa.xyz" />
-    <meta name="description" content="A very very simple link shortener." />
+    
 </svelte:head>
 
 <!-- <svg
