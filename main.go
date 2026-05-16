@@ -23,6 +23,7 @@ var l = slog.Default()
 
 func main() {
 	godotenv.Load()
+	gin.SetMode(gin.ReleaseMode)
 	
 	db := getDB()
 	if db == nil {
@@ -168,7 +169,12 @@ func main() {
 		})
 	}
 	
-	r.Run(":8000")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
+	}
+	
+	r.Run(":" + port)
 }
 
 const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
